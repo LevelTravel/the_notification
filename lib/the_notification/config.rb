@@ -1,3 +1,5 @@
+require 'active_support/core_ext/class/attribute'
+
 module TheNotification
   def self.configure(&block)
     yield @config ||= TheNotification::Configuration.new
@@ -9,7 +11,7 @@ module TheNotification
 
   # Configuration class
   class Configuration
-    attr_accessor :default_type
+    class_attribute :default_type, instance_predicate: false
   end
 
   configure do |config|
