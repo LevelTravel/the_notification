@@ -9,9 +9,7 @@ module TheNotification
 
   # Configuration class
   class Configuration
-    include ActiveSupport::Configurable
-
-    config_accessor :default_type
+    attr_accessor :default_type
   end
 
   configure do |config|
